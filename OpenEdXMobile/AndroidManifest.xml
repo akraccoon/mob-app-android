@@ -37,45 +37,63 @@
         android:theme="@style/AppTheme">
 
         <activity
+            android:name="sa.gov.moe.etraining.authentication.SSOAuthActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="unspecified"
+            android:theme="@style/AppTheme.Launch">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+
+                <intent-filter>
+                    <data android:scheme="edx" android:host="open" />
+                    <action android:name="android.intent.action.VIEW" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                </intent-filter>
+        </activity>
+
+        <activity
             android:name="sa.gov.moe.etraining.view.SplashActivity"
             android:label="@string/app_shortcut_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@android:style/Theme.NoDisplay">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
 
-            <intent-filter>
-                <data android:scheme="edx" android:host="open" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-            </intent-filter>
+            <!--<intent-filter>-->
+                <!--<data android:scheme="edx" android:host="open" />-->
+                <!--<action android:name="android.intent.action.VIEW" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+                <!--<category android:name="android.intent.category.BROWSABLE" />-->
+            <!--</intent-filter>-->
         </activity>
 
         <activity
             android:name="sa.gov.moe.etraining.view.LaunchActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.Launch" />
 
         <activity
             android:name="sa.gov.moe.etraining.view.DiscoveryLaunchActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name="sa.gov.moe.etraining.view.LoginActivity"
             android:configChanges="keyboardHidden|orientation"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustNothing"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name="sa.gov.moe.etraining.view.RegisterActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
@@ -85,7 +103,7 @@
         <activity
             android:name="sa.gov.moe.etraining.view.AccountActivity"
             android:label="@string/title_account"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
@@ -150,7 +168,7 @@
         <activity
             android:name=".view.WebViewFindCoursesActivity"
             android:label="@string/label_discover"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
@@ -161,13 +179,13 @@
         <activity
             android:name="sa.gov.moe.etraining.view.CourseInfoActivity"
             android:label="@string/label_discover"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name="sa.gov.moe.etraining.view.CourseDetailActivity"
             android:label="@string/label_find_courses"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
@@ -178,7 +196,7 @@
         <activity
             android:name=".view.NativeFindCoursesActivity"
             android:label="@string/label_find_courses"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
@@ -189,60 +207,60 @@
         <activity
             android:name="sa.gov.moe.etraining.view.CertificateActivity"
             android:label="@string/tab_label_certificate"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar"/>
 
         <activity
             android:name="sa.gov.moe.etraining.view.SettingsActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name="sa.gov.moe.etraining.view.ShowAboutPageActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name="sa.gov.moe.etraining.view.ShowFAQPageActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name="sa.gov.moe.etraining.view.ShowContactsPageActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name=".profiles.UserProfileActivity"
             android:label="@string/profile_title"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name=".view.EditUserProfileActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar" />
 
         <activity
             android:name=".view.FormFieldActivity"
             android:label=""
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar"
             android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".view.CropImageActivity"
             android:label=""
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
             android:name=".whatsnew.WhatsNewActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
@@ -252,7 +270,7 @@
 
         <activity
             android:name=".view.dialog.WebViewActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar.TranslucentStatusBar">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />

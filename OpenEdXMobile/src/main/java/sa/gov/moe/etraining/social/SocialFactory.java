@@ -16,7 +16,8 @@ public class SocialFactory {
 
     //TODO - we should create a central place for application wide constants.
     public static enum SOCIAL_SOURCE_TYPE {
-        TYPE_UNKNOWN(-1, "unknown"), TYPE_GOOGLE(100, "google-oauth2"), TYPE_FACEBOOK(101,"facebook");
+        TYPE_UNKNOWN(-1, "unknown"), TYPE_GOOGLE(100, ""), TYPE_FACEBOOK(101,"facebook");
+//        TYPE_UNKNOWN(-1, "unknown"), TYPE_GOOGLE(100, "google-oauth2"), TYPE_FACEBOOK(101,"facebook");
 
         private int code;
         private String value;
@@ -29,7 +30,7 @@ public class SocialFactory {
         public static SOCIAL_SOURCE_TYPE fromString(String source){
             if ( "facebook".equalsIgnoreCase( source ) )
                 return TYPE_FACEBOOK;
-            if ( "google-oauth2".equalsIgnoreCase( source ) || "google".equalsIgnoreCase( source ) )
+            if ( "".equalsIgnoreCase( source ) || "google".equalsIgnoreCase( source ) )
                 return TYPE_GOOGLE;
             return TYPE_UNKNOWN;
         }

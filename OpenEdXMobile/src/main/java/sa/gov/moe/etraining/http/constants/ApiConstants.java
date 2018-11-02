@@ -28,6 +28,8 @@ public class ApiConstants {
     public static final String URL_PASSWORD_RESET = "/password_reset/";
 
     public static final String URL_EXCHANGE_ACCESS_TOKEN = "/oauth2/exchange_access_token/{" + GROUP_ID + "}/";
+//    public static final String URL_EXCHANGE_ACCESS_TOKEN = "/oauth2/exchange_access_token/{" + GROUP_ID + "}";
+//    public static final String URL_EXCHANGE_ACCESS_TOKEN = "/oauth2/access_token{" + GROUP_ID + "}";
 
     public static final String URL_REVOKE_TOKEN = "/oauth2/revoke_token/";
 
@@ -61,6 +63,9 @@ public class ApiConstants {
             }
             case GOOGLE: {
                 return PrefManager.Value.BACKEND_GOOGLE;
+            }
+            case MOE: {
+                return PrefManager.Value.BACKEND_MOE;
             }
             default: {
                 throw new IllegalArgumentException(authBackend.name());

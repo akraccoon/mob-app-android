@@ -23,7 +23,8 @@ public class LoginPrefs {
     public enum AuthBackend {
         PASSWORD,
         FACEBOOK,
-        GOOGLE
+        GOOGLE,
+        MOE
     }
 
     @NonNull
@@ -40,6 +41,10 @@ public class LoginPrefs {
     public void storeAuthTokenResponse(@NonNull AuthResponse response, @NonNull AuthBackend backend) {
         pref.put(PrefManager.Key.AUTH_JSON, gson.toJson(response));
         pref.put(PrefManager.Key.ANALYTICS_KEY_BACKEND, analyticsTokenFromAuthBackend(backend));
+    }
+
+    public void storeOauthTokenResponse(@NonNull AuthResponse response) {
+        pref.put(PrefManager.Key.AUTH_JSON, gson.toJson(response));
     }
 
     public void clearAuthTokenResponse() {
@@ -173,6 +178,8 @@ public class LoginPrefs {
                 return Analytics.Values.FACEBOOK;
             case GOOGLE:
                 return Analytics.Values.GOOGLE;
+            case MOE:
+                return Analytics.Values.MOE;
             default:
                 throw new IllegalArgumentException(backend.name());
         }

@@ -450,6 +450,7 @@ public interface Analytics {
         String PASSWORD = "Password";
         String FACEBOOK = "Facebook";
         String GOOGLE = "Google";
+        String MOE = "Moe";
         String DOWNLOAD_MODULE = "downloadmodule";
         String VIDEO_LOADED = "edx.video.loaded";
         String VIDEO_PLAYED = "edx.video.played";

@@ -127,7 +127,15 @@ public class SocialLoginDelegate {
      */
     public void onSocialLoginSuccess(String accessToken, String backend) {
         loginPrefs.saveSocialLoginToken(accessToken, backend);
-        Task<?> task = new ProfileTask(activity, accessToken, backend);
+        AuthResponse responseObject = new AuthResponse();
+        Task<?> task = new ProfileTask(activity, accessToken, responseObject, backend);
+        callback.onSocialLoginSuccess(accessToken, backend, task);
+        task.execute();
+    }
+
+    public void onOauthLoginSuccess(String accessToken, AuthResponse responseObject, String backend) {
+        loginPrefs.saveSocialLoginToken(accessToken, backend);
+        Task<?> task = new ProfileTask(activity, accessToken, responseObject, backend);
         callback.onSocialLoginSuccess(accessToken, backend, task);
         task.execute();
     }
@@ -157,18 +165,21 @@ public class SocialLoginDelegate {
     }
 
 
-    private class ProfileTask extends Task<ProfileModel> {
+    public class ProfileTask extends Task<ProfileModel> {
 
         private String accessToken;
         private String backend;
+        private AuthResponse responseObject;
+
 
         @Inject
         LoginAPI loginAPI;
 
-        public ProfileTask(Context context, String accessToken, String backend) {
+        public ProfileTask(Context context, String accessToken, AuthResponse responseObject, String backend) {
             super(context);
             this.accessToken = accessToken;
             this.backend = backend;
+            this.responseObject = responseObject;
         }
 
         @Override
@@ -204,7 +215,15 @@ public class SocialLoginDelegate {
                     CharSequence desc = ResourceUtil.getFormattedString(context.getResources(), R.string.error_account_not_linked_desc_google, descParams);
                     throw new LoginException(new LoginErrorMessage(title.toString(), desc.toString()));
                 }
-            } else {
+            } else if (backend.equalsIgnoreCase(PrefManager.Value.BACKEND_MOE)){
+                try {
+                    auth = loginAPI.logInUsingMoe(accessToken, responseObject);
+                } catch (LoginAPI.AccountNotLinkedException e) {
+                    CharSequence title = ResourceUtil.getFormattedString(context.getResources(), R.string.error_account_not_linked_title_google, descParams);
+                    CharSequence desc = ResourceUtil.getFormattedString(context.getResources(), R.string.error_account_not_linked_desc_google, descParams);
+                    throw new LoginException(new LoginErrorMessage(title.toString(), desc.toString()));
+                }
+             } else {
                 throw new IllegalArgumentException("Unknown backend: " + backend);
             }
             return auth.profile;

@@ -44,6 +44,10 @@ public class Config {
     private static final String SPEED_TEST_ENABLED = "SPEED_TEST_ENABLED";
     private static final String APP_UPDATE_URIS = "APP_UPDATE_URIS";
     private static final String ORGANIZATION_CODE = "ORGANIZATION_CODE";
+    private static final String SSO_AUTH_URL = "SSO_AUTH_URL";
+    private static final String ACCESS_TOKEN_REQUEST_URL = "ACCESS_TOKEN_REQUEST_URL";
+    private static final String ACCESS_TOKEN_REQUEST_DATA = "ACCESS_TOKEN_REQUEST_DATA";
+
 
     /* Composite configuration keys */
     private static final String COURSE_ENROLLMENT = "COURSE_ENROLLMENT";
@@ -465,6 +469,18 @@ public class Config {
 
     public String getApiHostURL() {
         return getString(API_HOST_URL);
+    }
+
+    public String getSSOHostURL() {
+        return getString(SSO_AUTH_URL);
+    }
+
+    public String getAccessTokenRequestUrl() {
+        return getString(ACCESS_TOKEN_REQUEST_URL);
+    }
+
+    public String getAccessTokenRequestData() {
+        return getString(ACCESS_TOKEN_REQUEST_DATA);
     }
 
     // User facing name of the platform like "edX"

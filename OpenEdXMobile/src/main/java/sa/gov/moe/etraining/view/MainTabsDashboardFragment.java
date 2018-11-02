@@ -102,10 +102,13 @@ public class MainTabsDashboardFragment extends TabsBaseFragment {
     }
 
     public void sendGetUpdatedAccountCall() {
+//        String userName = "1017416882";
         getAccountCall = userService.getAccount(profile.username);
+//        getAccountCall = userService.getAccount(userName);
         getAccountCall.enqueue(new UserAPI.AccountDataUpdatedCallback(
                 getActivity(),
                 profile.username,
+//                userName,
                 null, // Disable global loading indicator
                 null)); // No place to show an error notification
     }

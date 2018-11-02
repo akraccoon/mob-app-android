@@ -3,6 +3,7 @@ package sa.gov.moe.etraining.authentication;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.inject.Inject;
@@ -97,6 +98,11 @@ public class LoginAPI {
     }
 
     @NonNull
+    public AuthResponse logInUsingMoe(String accessToken, AuthResponse responseObject) throws Exception {
+        return finishOauthlLogIn(accessToken, responseObject, LoginPrefs.AuthBackend.MOE);
+    }
+
+    @NonNull
     private AuthResponse finishSocialLogIn(@NonNull String accessToken, @NonNull LoginPrefs.AuthBackend authBackend) throws Exception {
         final String backend = ApiConstants.getOAuthGroupIdForAuthBackend(authBackend);
         final Response<AuthResponse> response = loginService.exchangeAccessToken(accessToken, config.getOAuthClientId(), backend).execute();
@@ -114,6 +120,28 @@ public class LoginAPI {
         finishLogIn(data, authBackend, "");
         return data;
     }
+
+    @NonNull
+    private AuthResponse finishOauthlLogIn(@NonNull String accessToken, AuthResponse responseObject, @NonNull LoginPrefs.AuthBackend authBackend) throws Exception {
+        final String backend = ApiConstants.getOAuthGroupIdForAuthBackend(authBackend);
+//        final Response<AuthResponse> response = loginService.exchangeAccessToken(accessToken, config.getOAuthClientId(), backend).execute();
+
+
+//        if (response.code() == HttpURLConnection.HTTP_UNAUTHORIZED) {
+////             TODO: Introduce a more explicit error code to indicate that an account is not linked.
+//            throw new AccountNotLinkedException();
+//        }
+//        if (!response.isSuccessful()) {
+//            throw new HttpStatusException(response);
+//        }
+        final AuthResponse data = responseObject;
+//        if (data.error != null && data.error.equals(Integer.toString(HttpURLConnection.HTTP_UNAUTHORIZED))) {
+//            throw new AccountNotLinkedException();
+//        }
+        finishLogIn(data, authBackend, "");
+        return data;
+    }
+
 
     private void finishLogIn(@NonNull AuthResponse response, @NonNull LoginPrefs.AuthBackend authBackend, @NonNull String usernameUsedToLogIn) throws Exception {
         loginPrefs.storeAuthTokenResponse(response, authBackend);

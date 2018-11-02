@@ -2,6 +2,7 @@ import org.edx.builder.TaskHelper
 
 buildscript {
     repositories {
+//        google()
         jcenter()
         mavenCentral()
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
@@ -138,6 +139,16 @@ dependencies {
     compile 'com.squareup.phrase:phrase:1.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.0.1'
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpcore
+//    compile group: 'org.apache.httpcomponents', name: 'httpcore', version: '4.4.10'
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient
+//    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.6'
+    // https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient-android
+//    compile group: 'org.apache.httpcomponents', name: 'httpclient-android', version: '4.3.5.1'
+
+
+
     /* Exclude dependencies defined statically at the top-
      * level, to prevent them from being resolved to the
      * latest version as a result of dynamic version
@@ -267,12 +278,12 @@ android {
         applicationId "sa.gov.moe.etraining"
         // minimum version is Android 4.1
         minSdkVersion 16
-        targetSdkVersion 21
+        targetSdkVersion 28
 
 //        versionCode getVersionCode()
-        versionCode 2150101
+        versionCode 2150102
 //        versionCode getVersionCode()
-        versionName "2.15.01.01"
+        versionName "2.15.01.02"
 
         renderscriptTargetApi 22
         renderscriptSupportModeEnabled true

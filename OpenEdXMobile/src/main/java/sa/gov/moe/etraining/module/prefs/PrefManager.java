@@ -307,7 +307,8 @@ public class PrefManager {
          * These values are used in API endpoint
          */
         public static final String BACKEND_FACEBOOK = "facebook";
-        public static final String BACKEND_GOOGLE = "google-oauth2";
+        public static final String BACKEND_GOOGLE = "";
+        public static final String BACKEND_MOE = "moe";
     }
 
     /**

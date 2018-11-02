@@ -19,6 +19,7 @@ import sa.gov.moe.etraining.R;
 
 import de.greenrobot.event.EventBus;
 import sa.gov.moe.etraining.authentication.LoginAPI;
+import sa.gov.moe.etraining.authentication.SSOAuthActivity;
 import sa.gov.moe.etraining.course.CourseDetail;
 import sa.gov.moe.etraining.discussion.DiscussionComment;
 import sa.gov.moe.etraining.discussion.DiscussionThread;
@@ -116,7 +117,7 @@ public class Router {
     }
 
     public void showSplashScreen(Context context) {
-        final Intent launchIntent = new Intent(context, SplashActivity.class);
+        final Intent launchIntent = new Intent(context, SSOAuthActivity.class);
         launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(launchIntent);
     }
