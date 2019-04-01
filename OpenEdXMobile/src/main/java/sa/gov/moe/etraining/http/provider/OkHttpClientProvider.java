@@ -7,10 +7,12 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.Singleton;
 
+import okhttp3.Protocol;
 import sa.gov.moe.etraining.BuildConfig;
 import sa.gov.moe.etraining.R;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import okhttp3.Cache;
@@ -70,6 +72,9 @@ public interface OkHttpClientProvider extends Provider<OkHttpClient> {
             OkHttpClient client = clients[index];
             if (client == null) {
                 final OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                List<Protocol> protocols = new ArrayList<Protocol>();
+                protocols.add(Protocol.HTTP_1_1);
+                builder.protocols(protocols);
                 List<Interceptor> interceptors = builder.interceptors();
                 if (usesOfflineCache) {
                     final File cacheDirectory = new File(context.getFilesDir(), "http-cache");

@@ -20,7 +20,7 @@ public class ShowContactsPageActivityFragment extends Fragment {
 
         View v=inflater.inflate(R.layout.fragment_about, container, false);
         mWebView = (WebView) v.findViewById(R.id.webview);
-        mWebView.loadUrl("https://edxmoe.ilearnme.com/contact");
+        mWebView.loadUrl("https://etraining.moe.gov.sa//contact");
 
         // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();

@@ -20,7 +20,7 @@ public class ShowAboutPageActivityFragment extends Fragment {
 
         View v=inflater.inflate(R.layout.fragment_about, container, false);
         mWebView = (WebView) v.findViewById(R.id.webview);
-        mWebView.loadUrl("https://edxmoe.ilearnme.com/about");
+        mWebView.loadUrl("https://etraining.moe.gov.sa//about");
 
         // Enable Javascript
         WebSettings webSettings = mWebView.getSettings();
